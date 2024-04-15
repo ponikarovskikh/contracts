@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Справочник контрагентов</title>
+   <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+   <header>
+      <h1>Справочник контрагентов</h1>
+   </header>
+   <nav>
+      <ul>
+         <li><a href="#general-info">Общие сведения</a></li>
+         <li><a href="#contracts">Договора</a></li>
+         <li><a href="#financial-info">Финансовая информация</a></li>
+         <li><a href="#contacts">Контактные лица</a></li>
+      </ul>
+   </nav>
+   <main>
+      <section id="general-info">
+         <h2>Общие сведения</h2>
+         <form>
+            <div class="form-group">
+               <label for="company-name">Название организации:</label>
+               <input type="text" id="company-name" name="company-name">
+            </div>
+            <div class="form-group">
+               <label for="main-activity">Основной вид деятельности:</label>
+               <input type="text" id="main-activity" name="main-activity">
+            </div>
+            <div class="form-group">
+               <label for="country">Страна:</label>
+               <input type="text" id="country" name="country">
+            </div>
+            <div class="form-group">
+               <label for="region">Регион/Область:</label>
+               <input type="text" id="region" name="region">
+            </div>
+            <div class="form-group">
+               <label for="city">Город:</label>
+               <input type="text" id="city" name="city">
+            </div>
+            <div class="form-group">
+               <label for="street">Улица:</label>
+               <input type="text" id="street" name="street">
+            </div>
+            <div class="form-group">
+               <label for="house">Дом, квартира:</label>
+               <input type="text" id="house" name="house">
+            </div>
+            <div class="form-group">
+               <label for="phone">Контактный телефон:</label>
+               <input type="tel" id="phone" name="phone">
+            </div>
+            <div class="form-group">
+               <label for="email">Электронная почта:</label>
+               <input type="email" id="email" name="email">
+            </div>
+            <div class="form-group">
+               <label for="inn">ИНН:</label>
+               <input type="text" id="inn" name="inn">
+            </div>
+            <div class="form-group">
+               <label for="kpp">КПП:</label>
+               <input type="text" id="kpp" name="kpp">
+            </div>
+            <div class="form-group">
+               <label for="ogrn">ОГРН:</label>
+               <input type="text" id="ogrn" name="ogrn">
+            </div>
+         </form>
+      </section>
+      <section id="contracts">
+         <h2>Договор</h2>
+         <form>
+            <div class="form-group">
+               <label for="contract-number">Номер договора:</label>
+               <input type="text" id="vat" name="vat" pattern="\d{4}-\d{5}-\d{3}-\d{2}" placeholder="0000-00000-000-00"
+                  required>
+            </div>
+            <div class="form-group">
+               <label for="contract-date">Дата заключения:</label>
+               <input type="date" id="contract-date" name="contract-date">
+            </div>
+            <div class="form-group">
+               <label for="contract-term">Срок действия:</label>
+               <input type="date" id="contract-date" name="contract-date">
+            </div>
+            <div class="form-group">
+               <label for="contract-subject">Предмет договора:</label>
+               <input type="text" id="contract-subject" name="contract-subject">
+            </div>
+            <div class="form-group">
+               <label for="contract-amount">Сумма договора:</label>
+               <input type="number" id="contract-amount" name="contract-amount">
+            </div>
+            <div class="form-group">
+               <label for="contract-status">Статус договора:</label>
+               <select id="contract-status" name="contract-status">
+                  <option value="active">Активный</option>
+                  <option value="closed">Закрытый</option>
+                  <option value="suspended">Приостановленный</option>
+               </select>
+            </div>
+         </form>
+      </section>
+      <section id="financial-info">
+         <h2>Финансовая информация</h2>
+         <form>
+            <div class="form-group">
+               <label for="bank-name">Наименование банка:</label>
+               <input type="text" id="bank-name" name="bank-name">
+            </div>
+            <div class="form-group">
+               <label for="bic">БИК:</label>
+               <input type="text" id="bic" name="bic">
+            </div>
+            <div class="form-group">
+               <label for="account-number">Расчётный счёт:</label>
+               <input type="text" id="account-number" name="account-number">
+            </div>
+            <div class="form-group">
+               <label for="vat">НДС:</label>
+               <input type="number" id="vat" name="vat">
+            </div>
+            <div class="form-group">
+               <label for="profit-tax">Налог на прибыль:</label>
+               <input type="number" id="profit-tax" name="profit-tax">
+            </div>
+
+         </form>
+      </section>
+      <section id="contacts">
+         <h2>Контактные лица</h2>
+         <form>
+            <div class="form-group">
+               <label for="contact-name">ФИО контактного лица:</label>
+               <input type="text" id="contact-name" name="contact-name" placeholder="Иванов Иван Иванович">
+            </div>
+            <div class="form-group">
+               <label for="position">Должность:</label>
+               <input type="text" id="position" name="position">
+            </div>
+            <div class="form-group">
+               <label for="contact-phone">Телефон:</label>
+               <div class="phone-input">
+                  <span class="plus">+</span>
+                  <input type="text" class="phone-part" maxlength="1">
+                  <span class="ckiba">(</span>
+                  <input type="text" class="phone-part" maxlength="1" onkeyup="moveToNext(this)">
+                  <input type="text" class="phone-part" maxlength="1" onkeyup="moveToNext(this)">
+                  <input type="text" class="phone-part" maxlength="1" onkeyup="moveToNext(this)">
+                  <span class="plus">)</span>
+                  <input type="text" class="phone-part" maxlength="1" onkeyup="moveToNext(this)">
+                  <input type="text" class="phone-part" maxlength="1" onkeyup="moveToNext(this)">
+                  <input type="text" class="phone-part" maxlength="1" onkeyup="moveToNext(this)">
+                  <span class="separator">-</span>
+
+                  <input type="text" class="phone-part" maxlength="1" onkeyup="moveToNext(this)">
+                  <input type="text" class="phone-part" maxlength="1" onkeyup="moveToNext(this)">
+                  <span class="separator">-</span>
+                  <input type="text" class="phone-part" maxlength="1" onkeyup="moveToNext(this)">
+                  <input type="text" class="phone-part" maxlength="1" onkeyup="moveToNext(this)">
+               </div>
+            </div>
+            <div class="form-group">
+               <label for="contact-email">Email:</label>
+               <input type="email" id="contact-email" name="contact-email" placeholder="example@mail.ru">
+            </div>
+         </form>
+      </section>
+      <button id="submit-btn">Отправить</button>
+   </main>
+   <footer>
+      <p>&copy; 2024 Справочник контрагентов</p>
+   </footer>
+</body>
+<script>
+   function moveToNext(input) {
+      if (input.value.length === input.maxLength) {
+         const nextInput = input.nextElementSibling;
+         if (nextInput && nextInput.tagName === 'INPUT') {
+            nextInput.focus();
+         }
+      }
+   }
+</script>
+
+</html>
