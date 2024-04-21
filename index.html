@@ -1,193 +1,234 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Справочник контрагентов</title>
-   <link rel="stylesheet" href="styles.css">
+   <title>Справочник контрагентов юридических лиц</title>
+   <style>
+      h2 {
+         display: flex;
+         justify-self: center;
+         flex-direction: row;
+         justify-content: center;
+         font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+         color: #7c68c4;
+      }
+
+      .tab {
+         display: flex;
+         width: 100%;
+         /* border: 1px solid #000000; */
+
+         height: 100px;
+         justify-content: center;
+
+      }
+
+      .tablink {
+         color: #000000;
+         width: auto;
+         border: 1px solid #ddd;
+         background-color: #7abb8d;
+         padding: 14px 100px;
+         margin: auto 10;
+         font-size: 30px;
+         font-weight: bold;
+         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      }
+
+      .tablink:hover {
+         background-color: #ddd;
+      }
+
+      .tabcontent {
+         display: none;
+         padding: 6px 12px;
+         border: 1px solid #ccc;
+         border-top: none;
+      }
+
+      input[type=text],
+      input[type=email],
+      textarea {
+         width: 100%;
+         padding: 12px 20px;
+         margin: 8px 0;
+         box-sizing: border-box;
+         border: 2px solid #ccc;
+         border-radius: 4px;
+      }
+
+      input[type=submit] {
+         background-color: #89afe3;
+         color: white;
+         font-weight: 700;
+         padding: 14px 20px;
+         margin: 8px 0;
+         border: none;
+         border-radius: 4px;
+         cursor: pointer;
+
+      }
+
+      input[type=submit]:hover {
+         opacity: 0.8;
+      }
+
+      .container {
+         border-radius: 5px;
+         background-color: #fdfdfd;
+         padding: 20px;
+
+         font-size: 20px;
+         color: rgb(36, 82, 129);
+         font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+         max-width: 80cap;
+
+
+      }
+
+      .container label {
+         display: flexbox;
+         padding-top: 20px;
+         color: #7abb8d;
+      }
+
+      .container input {
+         display: flexbox;
+         padding: 5px;
+         padding-top: 20px;
+         color: #b4cc2c;
+      }
+
+      h3 {
+         color: #b34848;
+         font-size: larger;
+      }
+   </style>
 </head>
 
 <body>
-   <header>
-      <h1>Справочник контрагентов</h1>
-   </header>
-   <nav>
-      <ul>
-         <li><a href="#general-info">Общие сведения</a></li>
-         <li><a href="#contracts">Договора</a></li>
-         <li><a href="#financial-info">Финансовая информация</a></li>
-         <li><a href="#contacts">Контактные лица</a></li>
-      </ul>
-   </nav>
-   <main>
-      <section id="general-info">
-         <h2>Общие сведения</h2>
-         <form>
-            <div class="form-group">
-               <label for="company-name">Название организации:</label>
-               <input type="text" id="company-name" name="company-name">
-            </div>
-            <div class="form-group">
-               <label for="main-activity">Основной вид деятельности:</label>
-               <input type="text" id="main-activity" name="main-activity">
-            </div>
-            <div class="form-group">
-               <label for="country">Страна:</label>
-               <input type="text" id="country" name="country">
-            </div>
-            <div class="form-group">
-               <label for="region">Регион/Область:</label>
-               <input type="text" id="region" name="region">
-            </div>
-            <div class="form-group">
-               <label for="city">Город:</label>
-               <input type="text" id="city" name="city">
-            </div>
-            <div class="form-group">
-               <label for="street">Улица:</label>
-               <input type="text" id="street" name="street">
-            </div>
-            <div class="form-group">
-               <label for="house">Дом, квартира:</label>
-               <input type="text" id="house" name="house">
-            </div>
-            <div class="form-group">
-               <label for="phone">Контактный телефон:</label>
-               <input type="tel" id="phone" name="phone">
-            </div>
-            <div class="form-group">
-               <label for="email">Электронная почта:</label>
-               <input type="email" id="email" name="email">
-            </div>
-            <div class="form-group">
-               <label for="inn">ИНН:</label>
-               <input type="text" id="inn" name="inn">
-            </div>
-            <div class="form-group">
-               <label for="kpp">КПП:</label>
-               <input type="text" id="kpp" name="kpp">
-            </div>
-            <div class="form-group">
-               <label for="ogrn">ОГРН:</label>
-               <input type="text" id="ogrn" name="ogrn">
-            </div>
-         </form>
-      </section>
-      <section id="contracts">
-         <h2>Договор</h2>
-         <form>
-            <div class="form-group">
-               <label for="contract-number">Номер договора:</label>
-               <input type="text" id="vat" name="vat" pattern="\d{4}-\d{5}-\d{3}-\d{2}" placeholder="0000-00000-000-00"
-                  required>
-            </div>
-            <div class="form-group">
-               <label for="contract-date">Дата заключения:</label>
-               <input type="date" id="contract-date" name="contract-date">
-            </div>
-            <div class="form-group">
-               <label for="contract-term">Срок действия:</label>
-               <input type="date" id="contract-date" name="contract-date">
-            </div>
-            <div class="form-group">
-               <label for="contract-subject">Предмет договора:</label>
-               <input type="text" id="contract-subject" name="contract-subject">
-            </div>
-            <div class="form-group">
-               <label for="contract-amount">Сумма договора:</label>
-               <input type="number" id="contract-amount" name="contract-amount">
-            </div>
-            <div class="form-group">
-               <label for="contract-status">Статус договора:</label>
-               <select id="contract-status" name="contract-status">
-                  <option value="active">Активный</option>
-                  <option value="closed">Закрытый</option>
-                  <option value="suspended">Приостановленный</option>
-               </select>
-            </div>
-         </form>
-      </section>
-      <section id="financial-info">
-         <h2>Финансовая информация</h2>
-         <form>
-            <div class="form-group">
-               <label for="bank-name">Наименование банка:</label>
-               <input type="text" id="bank-name" name="bank-name">
-            </div>
-            <div class="form-group">
-               <label for="bic">БИК:</label>
-               <input type="text" id="bic" name="bic">
-            </div>
-            <div class="form-group">
-               <label for="account-number">Расчётный счёт:</label>
-               <input type="text" id="account-number" name="account-number">
-            </div>
-            <div class="form-group">
-               <label for="vat">НДС:</label>
-               <input type="number" id="vat" name="vat">
-            </div>
-            <div class="form-group">
-               <label for="profit-tax">Налог на прибыль:</label>
-               <input type="number" id="profit-tax" name="profit-tax">
-            </div>
 
-         </form>
-      </section>
-      <section id="contacts">
-         <h2>Контактные лица</h2>
-         <form>
-            <div class="form-group">
-               <label for="contact-name">ФИО контактного лица:</label>
-               <input type="text" id="contact-name" name="contact-name" placeholder="Иванов Иван Иванович">
-            </div>
-            <div class="form-group">
-               <label for="position">Должность:</label>
-               <input type="text" id="position" name="position">
-            </div>
-            <div class="form-group">
-               <label for="contact-phone">Телефон:</label>
-               <div class="phone-input">
-                  <span class="plus">+</span>
-                  <input type="text" class="phone-part" maxlength="1">
-                  <span class="ckiba">(</span>
-                  <input type="text" class="phone-part" maxlength="1" onkeyup="moveToNext(this)">
-                  <input type="text" class="phone-part" maxlength="1" onkeyup="moveToNext(this)">
-                  <input type="text" class="phone-part" maxlength="1" onkeyup="moveToNext(this)">
-                  <span class="plus">)</span>
-                  <input type="text" class="phone-part" maxlength="1" onkeyup="moveToNext(this)">
-                  <input type="text" class="phone-part" maxlength="1" onkeyup="moveToNext(this)">
-                  <input type="text" class="phone-part" maxlength="1" onkeyup="moveToNext(this)">
-                  <span class="separator">-</span>
+   <h2>Справочник контрагентов</h2>
 
-                  <input type="text" class="phone-part" maxlength="1" onkeyup="moveToNext(this)">
-                  <input type="text" class="phone-part" maxlength="1" onkeyup="moveToNext(this)">
-                  <span class="separator">-</span>
-                  <input type="text" class="phone-part" maxlength="1" onkeyup="moveToNext(this)">
-                  <input type="text" class="phone-part" maxlength="1" onkeyup="moveToNext(this)">
-               </div>
-            </div>
-            <div class="form-group">
-               <label for="contact-email">Email:</label>
-               <input type="email" id="contact-email" name="contact-email" placeholder="example@mail.ru">
-            </div>
+   <div class="tab">
+      <button class="tablink" onclick="openCity(event, 'General')">Общие сведения</button>
+      <button class="tablink" onclick="openCity(event, 'Contracts')">Договора</button>
+      <button class="tablink" onclick="openCity(event, 'Payments')">Платежи</button>
+   </div>
+
+   <div id="General" class="tabcontent">
+      <h3>Общие сведения</h3>
+      <div class="container">
+         <form action="/action_page.php">
+            <label for="fname">Наименование:</label><br>
+            <input type="text" id="fname" name="firstname"><br>
+
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email"><br>
+
+            <label for="phone">Номер телефона:</label><br>
+            <input type="tel" id="phone" name="phone"><br>
+
+            <label for="address">Юридический адрес:</label><br>
+            <textarea id="address" name="address"></textarea><br>
+
+            <label for="address">Фактический адрес:</label><br>
+            <textarea id="address" name="address"></textarea><br>
+
+            <legend>Юридическая форма:</legend>
+            <label for="llc">
+               <input type="radio" id="llc" name="legalForm" value="LLC">
+               ООО
+            </label>
+            <br>
+            <label for="cjsc">
+               <input type="radio" id="cjsc" name="legalForm" value="CJSC">
+               ЗАО
+            </label>
+            <br>
+            <label for="ak">
+               <input type="radio" id="ak" name="legalForm" value="AK">
+               АК
+            </label>
+            <br>
+            <label for="other">
+               <input type="radio" id="other" name="legalForm" value="other">
+               Другое
+            </label><br>
+
+            <label for="position">ИНН:</label><br>
+            <input type="text" id="position" name="position"><br>
+
+            <label for="position">КПП:</label><br>
+            <input type="text" id="position" name="position"><br>
+
+            <label for="position">Банк:</label><br>
+            <input type="text" id="position" name="position"><br>
+
+            <label for="position">БИК:</label><br>
+            <input type="text" id="position" name="position"><br>
+
+            <label for="position">Корреспондентский счет:</label><br>
+            <input type="text" id="position" name="position"><br>
+
+            <label for="position">Расчетный счет:</label><br>
+            <input type="text" id="position" name="position"><br>
+
+            <input type="submit" value="Отправить">
          </form>
-      </section>
-      <button id="submit-btn">Отправить</button>
-   </main>
-   <footer>
-      <p>&copy; 2024 Справочник контрагентов</p>
-   </footer>
-</body>
-<script>
-   function moveToNext(input) {
-      if (input.value.length === input.maxLength) {
-         const nextInput = input.nextElementSibling;
-         if (nextInput && nextInput.tagName === 'INPUT') {
-            nextInput.focus();
+      </div>
+   </div>
+
+   <div id="Contracts" class="tabcontent">
+      <h3>Договора</h3>
+      <div class="container">
+         <form action="/action_page.php">
+            <label for="contract_name">Название договора:</label><br>
+            <input type="text" id="contract_name" name="contract_name" value="Contract 1"><br>
+            <label for="contract_date">Дата договора:</label><br>
+            <input type="date" id="contract_date" name="contract_date" value="2022-01-01"><br>
+            <label for="contract_value">Номер договора:</label><br>
+            <input type="number" id="contract_value" name="contract_value" value="10000"><br>
+            <label for="contract_description">Описание договора:</label><br>
+            <textarea id="contract_description" name="contract_description"
+               value="Description of Contract 1"></textarea><br>
+            <input type="submit" value="Отправить">
+         </form>
+      </div>
+   </div>
+
+   <div id="Payments" class="tabcontent">
+      <h3>Платежи</h3>
+      <div class="container">
+         <form action="/action_page.php">
+            <label for="payment_date">Дата платежа:</label><br>
+            <input type="date" id="payment_date" name="payment_date" value="2022-01-01"><br>
+            <label for="payment_amount">Сумма платежа:</label><br>
+            <input type="number" id="payment_amount" name="payment_amount" value="5000"><br>
+            <label for="payment_description">Описание платежа:</label><br>
+            <textarea id="payment_description" name="payment_description"
+               value="Description of Payment 1"></textarea><br>
+            <input type="submit" value="Отправить">
+         </form>
+      </div>
+   </div>
+
+   <script>
+      function openCity(evt, cityName) {
+         var i, tabcontent, tablinks;
+         tabcontent = document.getElementsByClassName("tabcontent");
+         for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
          }
+         tablinks = document.getElementsByClassName("tablink");
+         for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].style.backgroundColor = "";
+         }
+         document.getElementById(cityName).style.display = "block";
+         evt.currentTarget.style.backgroundColor = "#ddd";
       }
-   }
-</script>
+   </script>
+
+</body>
 
 </html>
